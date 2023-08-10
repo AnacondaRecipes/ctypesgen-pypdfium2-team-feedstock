@@ -1,0 +1,47 @@
+{% set name = "ctypesgen" %}
+{% set version = "1.1.2.dev4+g8a62d02" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: file:///Users/jolivieri/repos/upstream/ctypesgen-pypdfium2-team/dist/ctypesgen-1.1.2.dev4+g8a62d02.tar.gz
+  sha256: d23910fd783b8eb89d30cbb51b9c1bbedcc4143a50617c69959da4951cac94f9
+
+build:
+  entry_points:
+    - ctypesgen = ctypesgen.main:main
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv
+  number: 0
+
+requirements:
+  host:
+    - python >=3.7
+    - setuptools >=44
+    - wheel
+    - setuptools-scm >=3.4.3
+    - toml
+    - pip
+  run:
+    - python >=3.7
+
+test:
+  imports:
+    - ctypesgen
+  commands:
+    - pip check
+    - ctypesgen --help
+  requires:
+    - pip
+
+about:
+  home: https://github.com/ctypesgen/ctypesgen
+  summary: Python wrapper generator for ctypes
+  license: BSD-2-Clause
+  license_file: LICENSE
+
+extra:
+  recipe-maintainers:
+    - boldorider4
