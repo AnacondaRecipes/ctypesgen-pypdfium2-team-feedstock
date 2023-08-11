@@ -7,7 +7,7 @@ package:
 
 source:
   git_url: https://github.com/pypdfium2-team/{{ name }}.git
-  git_rev: 8a62d0
+  git_rev: 8a62d02a6fd350df6d22e179bcd164df0da770d4
 
 build:
   entry_points:
