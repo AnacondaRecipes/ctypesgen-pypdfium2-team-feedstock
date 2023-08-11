@@ -2,7 +2,7 @@
 
 package:
   name: {{ name|lower }}-pypdfium2-team
-  version: 1.1.1+4_g8a62d02 # this will be later replaced by {{ GIT_DESCRIBE_TAG }}+{{ GIT_BUILD_STR }}
+  version: 1.1.1+4_g8a62d02 # this will be later replaced by {{ GGIITT_DESCRIBE_TAG }}+{{ GGIITT_BUILD_STR }}
 
 source:
   git_url: https://github.com/pypdfium2-team/{{ name }}.git
