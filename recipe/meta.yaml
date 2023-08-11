@@ -27,6 +27,8 @@ requirements:
     - pip
   run:
     - python
+  run_constrained:
+    - ctypesgen <=0.0.0dev0
 
 test:
   imports:
