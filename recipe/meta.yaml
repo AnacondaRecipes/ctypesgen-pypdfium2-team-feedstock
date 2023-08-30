@@ -19,9 +19,9 @@ requirements:
     - git  # [not win]
   host:
     - python
-    - setuptools >=44
+    - setuptools 68.0.0
     - wheel
-    - setuptools-scm >=3.4.3
+    - setuptools-scm 7.1.0
     - toml
     - pip
   run:
