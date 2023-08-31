@@ -2,15 +2,15 @@
 
 package:
   name: {{ name|lower }}-pypdfium2-team
-  version: 1.1.1+4_g8a62d02 # this will be later by proper conda jinja vars
+  version: 1.1.1+17_g10b2b4 # this will be later by proper conda jinja vars
 
 source:
   git_url: https://github.com/pypdfium2-team/{{ name }}.git
-  git_rev: 8a62d02a6fd350df6d22e179bcd164df0da770d4
+  git_rev: 10b2b4be34c671613b3c4483bc068fa34e0a4d9e
 
 build:
   entry_points:
-    - ctypesgen = ctypesgen.main:main
+    - ctypesgen = ctypesgen.__main__:main
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
 
@@ -19,9 +19,9 @@ requirements:
     - git  # [not win]
   host:
     - python
-    - setuptools >=44
+    - setuptools 68.0.0
     - wheel
-    - setuptools-scm >=3.4.3
+    - setuptools-scm 7.1.0
     - toml
     - pip
   run:
