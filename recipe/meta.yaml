@@ -12,7 +12,7 @@ build:
   entry_points:
     - ctypesgen = ctypesgen.__main__:main
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 2
 
 requirements:
   build:
@@ -21,7 +21,7 @@ requirements:
     - python
     - setuptools
     - wheel
-    - setuptools-scm 7.1.0
+    - setuptools-scm
     - toml
     - pip
   run:
