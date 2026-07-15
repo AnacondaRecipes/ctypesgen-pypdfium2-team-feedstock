@@ -1,28 +1,31 @@
 {% set name = "ctypesgen" %}
+{% set version = "5.4.0" %}
+{% set commit = "78edc2c0df793456ed40c058701aba6b2c295ddc" %}
 
 package:
   name: {{ name|lower }}-pypdfium2-team
-  version: 1.1.1+17_g10b2b4 # this will be later by proper conda jinja vars
+  version: {{ version }}
 
 source:
-  git_url: https://github.com/pypdfium2-team/{{ name }}.git
-  git_rev: 10b2b4be34c671613b3c4483bc068fa34e0a4d9e
+  url: https://github.com/pypdfium2-team/{{ name }}/archive/{{ commit }}.tar.gz
+  sha256: 8dc1fb32d68cb10af2a0536bd0911a3d29f0f05df5c86b38698a22abcab2e77d
+  patches:
+    - patches/gcc.patch
 
 build:
   entry_points:
     - ctypesgen = ctypesgen.__main__:main
+  script_env:
+    - SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
-  build:
-    - git  # [not win]
   host:
     - python
-    - setuptools
+    - setuptools >=64        # pyproject build-system requires
+    - setuptools-scm >=7.1   # pyproject build-system requires
     - wheel
-    - setuptools-scm 7.1.0
-    - toml
     - pip
   run:
     - python
@@ -40,10 +43,10 @@ test:
 
 about:
   home: https://github.com/pypdfium2-team/ctypesgen
-  summary: Python wrapper generator for ctypes
+  summary: Python wrapper generator for ctypes (pypdfium2-team fork)
   description: |
     ctypesgen is a pure-python ctypes wrapper generator. It parses C header files and creates a wrapper for
-    libraries based on what it finds.
+    libraries based on what it finds. This is the pypdfium2-team fork with improvements for pypdfium2.
   license: BSD-2-Clause
   license_file: LICENSE
   license_family: BSD
