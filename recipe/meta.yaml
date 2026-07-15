@@ -23,8 +23,8 @@ build:
 requirements:
   host:
     - python
-    - setuptools
-    - setuptools-scm
+    - setuptools >=64        # pyproject build-system requires
+    - setuptools-scm >=7.1   # pyproject build-system requires
     - wheel
     - pip
   run:
